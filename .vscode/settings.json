@@ -1,0 +1,5 @@
+{
+  "angular.enable-strict-mode-prompt": false,
+  "html.format.wrapLineLength": 30,
+  "html.format.wrapAttributes": "force-expand-multiline"
+}
