@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   firebaseAPIKey: 'AIzaSyA39MvWom4KTgcTI3t0LCsuQJqFJAHTAuw',
+  edamamAPIid: '7eed4308',
+  edamamAPIkey: 'c4ea2901b531ee30e5b01933a418a29b'
 };
 
 /*

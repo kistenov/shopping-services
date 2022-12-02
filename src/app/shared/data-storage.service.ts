@@ -1,7 +1,6 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { exhaustMap, map, take, tap } from "rxjs/operators";
-import { AuthService } from "../auth.service";
+import { map, tap } from "rxjs/operators";
 import { Recipe } from "../recipes/recipe.model";
 import { RecipeService } from "../recipes/recipe.service";
 
@@ -10,7 +9,6 @@ export class DataStorageSertvice {
   constructor(
     private http: HttpClient, 
     private recipeService: RecipeService,
-    private authService:AuthService
   ){}
 
   storeRecipes () {
@@ -18,9 +16,7 @@ export class DataStorageSertvice {
     this.http.put(
       'https://angular-shopping-ef480-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', 
       recipes)
-    .subscribe(response => {
-      console.log(response);
-    });
+    .subscribe();
   }
   fetchRecipes () {
     return this.http.get<Recipe[]>('https://angular-shopping-ef480-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',

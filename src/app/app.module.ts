@@ -8,6 +8,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { AuthModule } from './auth/auth.module';
+import { SearchRecipesModule } from './search-recipes/search-recipes.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthModule } from './auth/auth.module';
     AuthModule,
     SharedModule,
     CoreModule,
+    SearchRecipesModule
   ],
   bootstrap: [AppComponent],
 })

@@ -14,9 +14,9 @@ export class AuthComponent implements OnDestroy{
   isLoginMode = true;
   isLoading = false;
   error:string = null;
+  private closeSub: Subscription;
   @ViewChild(PlaceHolderDirective, {static:false}) alertHost: PlaceHolderDirective;
 
-  private closeSub: Subscription;
 
   constructor(private authService:AuthService, private router:Router,
   private componentRes:ComponentFactoryResolver){}

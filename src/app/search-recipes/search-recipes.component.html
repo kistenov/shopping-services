@@ -1,0 +1,56 @@
+<div class="row">
+  <app-alert
+    [message]="error"
+    *ngIf="error"
+    (close)="onHandleError()"
+  ></app-alert>
+  <form #searcRecipeForm="ngForm" (ngSubmit)="onSubmit(searcRecipeForm)">
+    <div class="col-xs-12">
+      <h3 class="col-xs-6">Search a specific recipe</h3>
+    </div>
+    <div class="col-xs-12">
+      <div class="col-xs-4 pl-0">
+        <input
+          type="text"
+          name="search"
+          class="form-control"
+          id="search-on-db"
+          ngModel
+          required
+          minlength="3"
+        />
+      </div>
+      <div class="col-xs-2">
+        <input
+          type="submit"
+          value="Search"
+          class="btn btn-primary"
+          [disabled]="!searcRecipeForm.valid"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row" style="margin-top: 20px">
+  <div class="col-xs-12">
+    <div *ngIf="isLoading" style="text-align: center">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <div class="col-xs-4">
+      <ul class="list-group">
+        <p *ngIf="searchEmpty">Nothing found</p>
+        <app-search-recipes-results
+          *ngFor="let result of searchResults; index as i"
+          [searchResult]="result"
+          [index]="i"
+          (click)="onOpenDetail(i)"
+        ></app-search-recipes-results>
+      </ul>
+    </div>
+    <div class="col-xs-8">
+      <app-search-recipes-detail
+        [selectedRecipe]="recipeDetail"
+      ></app-search-recipes-detail>
+    </div>
+  </div>
+</div>

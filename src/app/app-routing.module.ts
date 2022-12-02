@@ -3,9 +3,10 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(module1 => module1.RecipesModule) },
-  { path: 'shopping-list', loadChildren: () => import('./shopping-list/shopping-list.module').then(module2 => module2.ShoppingListModule) },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(module3 => module3.AuthModule) }
+  { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(module => module.RecipesModule) },
+  { path: 'shopping-list', loadChildren: () => import('./shopping-list/shopping-list.module').then(module => module.ShoppingListModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(module => module.AuthModule) },
+  { path: 'search-recipes', loadChildren: () => import('./search-recipes/search-recipes.module').then(module => module.SearchRecipesModule) }
 ];
 
 @NgModule({

@@ -1,0 +1,30 @@
+<div class="recipe-detail" *ngIf="selectedRecipe">
+  <div class="recipe-detail__top">
+    <div class="recipe-detail__text">
+      <h2 class="recipe-detail__h2">{{ selectedRecipe?.name }}</h2>
+      <p class="recipe-detail__p">{{ selectedRecipe?.description }}</p>
+      <button
+        class="btn btn-primary"
+        (click)="saveRecipe()"
+        [disabled]="addButtonDisabled"
+      >
+        {{ addButtonText }}
+      </button>
+    </div>
+    <img
+      [src]="selectedRecipe?.imagePath"
+      loading="lazy"
+      [alt]="selectedRecipe?.name"
+      class="recipe-detail__img"
+    />
+  </div>
+  <div class="list-group">
+    <h4 class="recipe-detail__h4">Ingredients:</h4>
+    <div
+      class="list-group-item"
+      *ngFor="let ingr of selectedRecipe?.ingredients"
+    >
+      {{ ingr.name + ", " + ingr.amount }}
+    </div>
+  </div>
+</div>
