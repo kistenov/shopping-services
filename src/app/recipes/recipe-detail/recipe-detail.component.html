@@ -1,48 +1,49 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img
-      [src]="recipe.imagePath"
-      alt="{{ recipe.name }}"
-      class="img-responsive"
-      style="max-height: 300px;">
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ recipe.name }}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div
-      class="btn-group"
-      appDropdown>
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle">
-        Manage Recipe <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
-        <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
-      </ul>
+<div class="container p-0 mt-4 border border-muted rounded-sm">
+  <div class="row ml-0">
+    <div class="col-md-8 pl-4 pt-2">
+      <h3>{{ recipe.name }}</h3>
+
+      <div class="btn-group dropdown" appDropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          id="detailsDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Manage Recipe <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="detailsDropdown">
+          <li class="dropdown-item">
+            <a (click)="onAddToShoppingList()" style="cursor: pointer"
+              >To Shopping List</a
+            >
+          </li>
+          <li class="dropdown-item">
+            <a style="cursor: pointer" (click)="onEditRecipe()">Edit Recipe</a>
+          </li>
+          <li class="dropdown-item">
+            <a style="cursor: pointer" (click)="onDeleteRecipe()"
+              >Delete Recipe</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <p class="mt-3">{{ recipe.description }}</p>
+    </div>
+    <div class="col-md-4">
+      <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-fluid" />
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ recipe.description }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let ingredient of recipe.ingredients">
-        {{ ingredient.name }} - {{ ingredient.amount }}
-      </li>
-    </ul>
-  </div>
+  <ul class="list-group-flush p-0 m-0">
+    <h5 class="pl-4">Ingredients:</h5>
+    <li
+      class="list-group-item pl-4"
+      *ngFor="let ingredient of recipe.ingredients"
+    >
+      {{ ingredient.name }} - {{ ingredient.amount }}
+    </li>
+  </ul>
 </div>
